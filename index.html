@@ -1,98 +1,84 @@
+cat > "/Users/kylefindley/Desktop/Computer Science/cs/index.html" <<'HTML'
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Kyle Findley — CS Index</title>
-  <!doctype html>
-  <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Kyle Findley — CS Index</title>
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Kyle Findley — CS Index</title>
-      <style>
-        body { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; max-width: 900px; margin: 2rem auto; padding: 0 1rem; background: #cfe8ff; }
-        header { text-align: center; border: 4px solid rebeccapurple; padding: 1rem; border-radius: 8px; background: #e9eefb; }
-        main { border: 3px solid rebeccapurple; padding: 1rem; margin-top: 1rem; border-radius: 6px; background: #f7fbff; }
-        ul { list-style-type: square; }
-        a { color: #0645AD; }
-        .meta { color: #444; font-size: 0.95rem; }
-        .top-photo { display:block; margin: 0.75rem auto; max-width:800px; height:auto; border-radius:8px; }
-        .intro-photo { float: right; margin: 0 0 0.5rem 1rem; max-width:300px; height:auto; border: 3px solid rebeccapurple; border-radius:6px; }
-        .bottom-photo { display:block; margin: 1rem auto; max-width:700px; height:auto; border-radius:6px; border: 2px solid rebeccapurple; }
-        .clear { clear: both; }
-      </style>
-    </head>
-    <body>
-      <header>
-        <h1>Kyle Findley</h1>
-        <p class="meta">Major: Aviation Administration</p>
-        <p class="meta">Minor: Applied Mathematics (placeholder)</p>
-        <p><a href="/index.html">Back to main index</a></p>
-        <img src="images/me-800-by-800.jpg" alt="Kyle headshot (800x800)" class="top-photo">
-      </header>
+  <style>
+    :root{ --accent: rebeccapurple; --bg:#cfe8ff; --card:#ffffff; --muted:#666 }
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Arial, Helvetica, sans-serif; background:var(--bg); color:#111;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:980px;margin:2rem auto;padding:1rem}
+    header{background:var(--card);border:4px solid var(--accent);border-radius:12px;padding:1rem;text-align:center}
+    header h1{margin:.2rem 0}
+    .meta{color:var(--muted);margin:0.25rem 0}
+    main{background:var(--card);border:3px solid var(--accent);padding:1rem;margin-top:1rem;border-radius:10px}
+    ul{list-style-type:square;margin-left:1.25rem}
 
-      <main>
-        <section>
-          <h2>Introduction</h2>
-          <img src="images/me-300-by-300.jpg" alt="Kyle thumbnail (300x300)" class="intro-photo">
-          <p>&ldquo;Hi &mdash; I&rsquo;m Kyle. I live with my family and I&rsquo;m finishing my degree in Aviation Administration. This page will hold CS examples and notes; content is placeholder and can be updated later.&rdquo;</p>
-          <div class="clear"></div>
-        </section>
+    /* Images and layout */
+    .top-photo{display:block;margin:.75rem auto;max-width:800px;height:auto;border-radius:8px}
+    .intro-photo{float:right;margin:0 0 0.5rem 1rem;max-width:300px;height:auto;border:3px solid var(--accent);border-radius:6px}
+    .extra-photo{float:left;margin:0 1rem 0.5rem 0;max-width:300px;height:auto;border:3px solid var(--accent);border-radius:6px}
+    .bottom-photo{display:block;margin:1rem auto;max-width:700px;height:auto;border-radius:6px;border:2px solid var(--accent)}
+    .clear{clear:both}
 
-        <section>
-          <h2>What I Hope to Learn in this Course</h2>
-          <ul>
-            <li>Fundamentals of programming and software design</li>
-            <li>Web development basics: HTML, CSS, JavaScript</li>
-            <li>Version control and collaborative workflows</li>
-            <li>Problem solving with data structures and algorithms</li>
-          </ul>
-        </section>
+    /* HTML enhancement: responsive grid for code index */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+    .card{background:#fff;border:1px solid #eee;padding:.75rem;border-radius:8px}
 
-        <section>
-          <h2>My Favorite Hobby / Activity</h2>
-          <ul>
-            <li>Backpacking &mdash; multi-day trips into the wilderness</li>
-            <li>Sailing &mdash; weekend regattas and lake cruising</li>
-          </ul>
-          <p>Learn more about backpacking: <a href="https://en.wikipedia.org/wiki/Backpacking_(hiking)" target="_blank" rel="noopener noreferrer">Backpacking (Wikipedia)</a></p>
-        </section>
+    /* CSS enhancement: small theme hook */
+    [data-theme="dark"]{background:#071226;color:#ddd}
+    [data-theme="dark"] header{background:#071226;border-color:#8b5cf6}
+    [data-theme="dark"] main{background:#071226;border-color:#8b5cf6}
 
-        <section>
-          <h2>Fun Fact</h2>
-          <p>&ldquo;I once raced a sailboat from Chicago harbor to Mackinac Island &mdash; our crew didn&rsquo;t get first, but it was unforgettable.&rdquo;</p>
-        </section>
+    @media(max-width:640px){.intro-photo,.extra-photo{float:none;display:block;margin:.5rem auto}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Kyle Findley</h1>
+      <p class="meta">Major: Aviation Administration</p>
+      <p class="meta">Minor: Applied Mathematics (placeholder)</p>
+      <p><a href="../index.html">Back to main index</a></p>
+      <!-- centered copy of me-800-by-800.jpg -->
+      <img src="../images/me-800-by-800.jpg" alt="Kyle headshot (800x800)" class="top-photo lightbox">
+      <div style="margin-top:.5rem"><button id="theme-toggle">Switch to dark</button></div>
+    </header>
 
-        <section>
-          <h2>Code Index (placeholders)</h2>
-          <ul>
-            <li><a href="#">Assignment 1 — Hello World (placeholder)</a></li>
-            <li><a href="#">Project: Simple Web App (placeholder)</a></li>
-            <li><a href="#">Notes &amp; Snippets (placeholder)</a></li>
-          </ul>
-        </section>
-      </main>
+    <main>
+      <section>
+        <h2>Introduction</h2>
+        <!-- thumbnail next to introduction -->
+        <img src="../images/me-300-by-300.jpg" alt="Kyle thumbnail (300x300)" class="intro-photo lightbox">
+        <p>&ldquo;Hi &mdash; I&rsquo;m Kyle. I live with my family and I&rsquo;m finishing my degree in Aviation Administration. This page will hold CS examples and notes; content is placeholder and can be updated later.&rdquo;</p>
+        <div class="clear"></div>
+      </section>
 
-      <footer>
-      <img src="images/me-800-by-800.jpg" alt="Kyle centered copy (800x800)" class="bottom-photo">
-      <p>Last updated: March 2, 2026</p>
-      </footer>
-    </body>
-    </html>
+      <section>
+        <h2>What I Hope to Learn in this Course</h2>
+        <ul>
+          <li>Fundamentals of programming and software design</li>
+          <li>Web development basics: HTML, CSS, JavaScript</li>
+          <li>Version control and collaborative workflows</li>
+          <li>Problem solving with data structures and algorithms</li>
+        </ul>
+      </section>
+
       <section>
         <h2>My Favorite Hobby / Activity</h2>
+        <!-- extra image placed with hobby section -->
+        <img src="../images/photo2.jpg" alt="Extra photo" class="extra-photo lightbox">
         <ul>
           <li>Backpacking &mdash; multi-day trips into the wilderness</li>
           <li>Sailing &mdash; weekend regattas and lake cruising</li>
         </ul>
         <p>Learn more about backpacking: <a href="https://en.wikipedia.org/wiki/Backpacking_(hiking)" target="_blank" rel="noopener noreferrer">Backpacking (Wikipedia)</a></p>
+        <div class="clear"></div>
       </section>
 
       <section>
@@ -101,46 +87,76 @@
       </section>
 
       <section>
-        <h2>Code Index (placeholders)</h2>
-        <ul>
-          <li><a href="#">Assignment 1 — Hello World (placeholder)</a></li>
-          <li><a href="#">Project: Simple Web App (placeholder)</a></li>
-          <li><a href="#">Notes &amp; Snippets (placeholder)</a></li>
-        </ul>
+        <h2>CI/CD — Brief Review</h2>
+        <p>Continuous Integration (CI) runs automated builds and tests on each change; Continuous Delivery/Deployment (CD) automates releasing tested changes to production. For this site you can use GitHub Actions to run linters, run HTML validation, build assets, and deploy to GitHub Pages automatically when you push to the repository.</p>
+        <details>
+          <summary>Example GitHub Actions pipeline steps</summary>
+          <ol>
+            <li>Checkout code</li>
+            <li>Run linters (HTML/CSS/JS)</li>
+            <li>Run tests / accessibility checks</li>
+            <li>Deploy to GitHub Pages</li>
+          </ol>
+        </details>
       </section>
+
+      <section>
+        <h2>Code Index (placeholders)</h2>
+        <div class="grid">
+          <div class="card"><h3>Assignment 1</h3><p>Placeholder</p></div>
+          <div class="card"><h3>Project</h3><p>Placeholder</p></div>
+          <div class="card"><h3>Notes</h3><p>Placeholder</p></div>
+        </div>
+      </section>
+
     </main>
 
     <footer>
-      <p>Last updated: March 2, 2026</p>
+      <img src="../images/me-800-by-800.jpg" alt="Kyle centered copy (800x800)" class="bottom-photo lightbox">
+      <p class="meta">Last updated: March 1, 2026</p>
     </footer>
-  </body>
-  </html>
-    <section>
-      <h2>My Favorite Hobby / Activity</h2>
-      <ul>
-        <li>Backpacking &mdash; multi-day trips into the wilderness</li>
-        <li>Sailing &mdash; weekend regattas and lake cruising</li>
-      </ul>
-      <p>Learn more about backpacking: <a href="https://en.wikipedia.org/wiki/Backpacking_(hiking)" target="_blank" rel="noopener noreferrer">Backpacking (Wikipedia)</a></p>
-    </section>
+  </div>
 
-    <section>
-      <h2>Fun Fact</h2>
-      <p>&ldquo;I once raced a sailboat from Chicago harbor to Mackinac Island &mdash; our crew didn&rsquo;t get first, but it was unforgettable.&rdquo;</p>
-    </section>
+  <!-- JavaScript enhancements: theme toggle, image lightbox, simple contact validation -->
+  <script>
+    (function(){
+      // Theme toggle
+      const btn = document.getElementById('theme-toggle')
+      btn && btn.addEventListener('click', ()=>{
+        const cur = document.documentElement.getAttribute('data-theme')
+        document.documentElement.setAttribute('data-theme', cur==='dark' ? '' : 'dark')
+        btn.textContent = cur==='dark' ? 'Switch to dark' : 'Switch to light'
+      })
 
-    <section>
-      <h2>Code Index (placeholders)</h2>
-      <ul>
-        <li><a href="#">Assignment 1 — Hello World (placeholder)</a></li>
-        <li><a href="#">Project: Simple Web App (placeholder)</a></li>
-        <li><a href="#">Notes &amp; Snippets (placeholder)</a></li>
-      </ul>
-    </section>
-  </main>
+      // Lightbox for images with class 'lightbox'
+      const imgs = document.querySelectorAll('img.lightbox')
+      if(imgs.length){
+        const modal = document.createElement('div')
+        modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:9999;visibility:hidden;opacity:0;transition:opacity .2s'
+        const big = document.createElement('img')
+        big.style.maxWidth='95%'; big.style.maxHeight='95%'; big.style.borderRadius='8px'
+        modal.appendChild(big)
+        modal.addEventListener('click', ()=>{ modal.style.opacity=0; setTimeout(()=>modal.style.visibility='hidden',200) })
+        document.body.appendChild(modal)
+        imgs.forEach(i=>{
+          i.style.cursor='zoom-in'
+          i.addEventListener('click', ()=>{
+            big.src = i.src
+            modal.style.visibility='visible'; modal.style.opacity=1
+          })
+        })
+      }
 
-  <footer>
-    <p>Last updated: March 1, 2026</p>
-  </footer>
+      // Simple form validation hook (if contact form exists)
+      const form = document.querySelector('form')
+      if(form){
+        form.addEventListener('submit', function(e){
+          const name = (form.querySelector('[name=name]')||{}).value || ''
+          const email = (form.querySelector('[name=email]')||{}).value || ''
+          if(!name.trim() || !email.includes('@')){ e.preventDefault(); alert('Please provide a valid name and email.'); }
+        })
+      }
+    })()
+  </script>
 </body>
 </html>
